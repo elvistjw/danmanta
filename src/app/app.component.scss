@@ -1,0 +1,26 @@
+/* Estilo para os botões de seta */
+// .logo {
+//   width: 30rem;
+// }
+
+button {
+    cursor: pointer;
+    background: none;
+    border: none;
+    outline: none;
+    color: #FFF; /* Cor das setas */
+    font-size: 2rem; /* Tamanho da fonte para as setas */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Suaviza o movimento e a opacidade */
+  }
+  
+  button:hover {
+    opacity: 0.8;
+    transform: scale(1.1); /* Efeito de zoom ao passar o mouse */
+  }
+  
+  .grid {
+    display: grid;
+    gap: 8px;
+    transition: transform 0.5s ease-in-out; /* Transição suave para a mudança de posição dos cards */
+  }
+  

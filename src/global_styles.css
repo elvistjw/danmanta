@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --color-gold: #FFD700;
+  --color-gold: #FFFFFF;
 }
 
 body {
@@ -11,11 +11,15 @@ body {
 }
 
 .btn-primary {
-  @apply bg-[#FFD700] text-black font-bold py-3 px-6 rounded-lg transition-all hover:bg-[#E5C100] hover:scale-105;
+  @apply bg-[#FFFFFF] text-black font-bold py-3 px-6 rounded-lg transition-all hover:bg-[#FFFFFF] hover:scale-105;
+}
+
+.btn-secondary {
+  @apply bg-[#FFFFFF] text-black font-bold py-3 px-6 rounded-lg transition-all hover:bg-[#e6c200] hover:scale-105;
 }
 
 .section-title {
-  @apply text-4xl font-bold mb-8 text-[#FFD700];
+  @apply text-4xl font-bold mb-8 text-[#FFFFFF];
 }
 
 .fade-in {
