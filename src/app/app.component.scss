@@ -1,7 +1,23 @@
-/* Estilo para os botões de seta */
-// .logo {
-//   width: 30rem;
-// }
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+header {
+  @include mobile {
+    display: grid;
+    justify-content: center;
+  }
+}
+
+.iconSetaBaixo {
+  display: none;
+  @include mobile {
+  display: flex;
+  justify-content: center;
+  }
+}
 
 button {
     cursor: pointer;
@@ -22,5 +38,9 @@ button {
     display: grid;
     gap: 8px;
     transition: transform 0.5s ease-in-out; /* Transição suave para a mudança de posição dos cards */
+  }
+
+  .textoHearder:nth-child(2) {
+    align-self: center;
   }
   

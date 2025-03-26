@@ -19,7 +19,7 @@ import { bootstrapApplication } from '@angular/platform-browser';
   </div>
 
   <!-- Texto e Botão -->
-  <div class="relative z-20 container mx-auto max-w-3xl mt-8 sm:mt-16">
+  <div class="textoHearder relative z-20 container mx-auto max-w-3xl mt-8 sm:mt-16">
     <h1 class="text-3xl sm:text-6xl font-bold mb-4 fade-in">
       Transforme sua <span class="text-[#FFF]">Carreira Artística</span>
     </h1>
@@ -32,6 +32,9 @@ import { bootstrapApplication } from '@angular/platform-browser';
       Agende uma Consulta
     </a>
   </div>
+  <div class="iconSetaBaixo">
+    <img src="assets/setaBaixo.png">
+  </div>
 </header>
 
 <section class="py-20 bg-gray-900 relative" id="services">
@@ -39,7 +42,7 @@ import { bootstrapApplication } from '@angular/platform-browser';
         <h2 class="section-title">Nossos Acessorados</h2>
 
         <!-- Cards de Acessorados -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 transition-all duration-500 ease-in-out">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 transition-all duration-500 ease-in-out">
           <app-feature-card 
             *ngFor="let card of currentCards"
             [title]="card.title" 
@@ -49,6 +52,7 @@ import { bootstrapApplication } from '@angular/platform-browser';
             [nomeInstagram]="card.nomeInstagram">
           </app-feature-card>
         </div>
+
 
         <!-- Setas de Navegação -->
         <div class="absolute top-1/2 left-0 transform -translate-y-1/2 ml-4">
@@ -164,11 +168,30 @@ export class App {
     { title: 'Eu Day Lane Santos', description: 'Ifluencer', image: 'assets/eudaylanesantos_.png', instagram: 'https://instagram.com/eudaylanesantos_', nomeInstagram: '@eudaylanesantos_' },
     { title: 'Karol Digital', description: 'Ifluencer', image: 'assets/karoldigital_.png', instagram: 'https://instagram.com/karoldigital_', nomeInstagram: '@karoldigital_' },
   ];
-  constructor() {}
+  constructor() {
+    this.shuffle(this.cards);
+  }
 
+  shuffle(array: any[]) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]]; // Troca os elementos
+    }
+  }
   
   get currentCards() {
-    return [this.cards[this.currentIndex], this.cards[(this.currentIndex + 1) % this.cards.length], this.cards[(this.currentIndex + 2) % this.cards.length]];
+    const screenWidth = window.innerWidth;
+    const isMobile = screenWidth < 768;
+
+    if (isMobile) {
+      return [this.cards[this.currentIndex]];
+    } else {
+      return [
+        this.cards[this.currentIndex], 
+        this.cards[(this.currentIndex + 1) % this.cards.length], 
+        this.cards[(this.currentIndex + 2) % this.cards.length]
+      ];
+    }
   }
 
   next() {
